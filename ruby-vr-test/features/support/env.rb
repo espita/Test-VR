@@ -1,0 +1,6 @@
+require 'cucumber'
+require 'httpparty'
+require 'pry'
+require 'rspec'
+require 'rubocop'
+require 'colorize'

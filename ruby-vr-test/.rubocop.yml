@@ -1,0 +1,8 @@
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+
+Metrics/BlockLength:
+  Max: 50
+
+Metrics/MethodLength:
+  Max: 1000
