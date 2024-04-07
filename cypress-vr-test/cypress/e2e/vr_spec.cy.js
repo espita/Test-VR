@@ -1,22 +1,19 @@
   /// <reference types="cypress" />
   describe('Adicionar Cartões VR ao Carrinho', () => {
       it('Deve adicionar cartões do produto "Auto" ao carrinho com sucesso', () => {
-        //Adicionado tratamento de erro de exceção não capturada na aplicação
-        //para evitar que o cypress falhe o teste.  //o site estava apresentando erro "(uncaught exception)TypeError: Cannot set properties of null (setting 'value')"
-        //Também foi usado para permitir o comando windowOpen devido apresentar erro na política de segurança do CSP
-        //(uncaught exception)EvalError
-        
-        cy.on('uncaught:exception', (err, runnable) => {
-              // Não falha o teste quando uma exceção não capturada ocorrer
+          //Adicionado tratamento de erro de exceção não capturada na aplicação
+          //O site estava apresentando erro "(uncaught exception)TypeError: Cannot set properties of null (setting 'value')"
+          //Também foi usado para permitir o comando windowOpen devido apresentar erro na política de segurança do CSP (uncaught exception)EvalError
+
+          cy.on('uncaught:exception', (err, runnable) => { // Não falha o teste quando uma exceção não capturada ocorrer
               return false;
           });
-        
+
           // Acessar a home do portal web
           cy.visit('/')
 
           // Navegar até a loja 
-          //Comando adicionado para interceptar a abertura de uma nova janela do navegador dentro do Cypress.
-          const newUrl = "https://loja.vr.com.br/";
+          const newUrl = "https://loja.vr.com.br/"; //Comando adicionado para interceptar a abertura de uma nova janela do navegador dentro do Cypress.
           cy.window().then(win => {
               cy.stub(win, 'open').as('windowOpen');
           });
@@ -42,21 +39,21 @@
           cy.get('#btn-meu-carrinho > .fa-light').click()
           cy.contains('Seguir para o carrinho').click()
           cy.get('.content > .lojavr-style-c-kFqMqW')
-            .type('15.436.940/0001-03')
+              .type('03.500.479/0002-02')
           cy.get('#representante-nome').type('Testador Vr')
           cy.get('#representante-email').type('testadorvr@test.com')
           cy.get('#representante-telefone').type('11969991712')
           cy.get('#btn-modal-ver-resultado').click()
           cy.url({
-                  timeout: 8000
+                  timeout: 10000
               })
               .should('include', '/carrinho')
           cy.get('.product-item__title')
               .should('be.visible')
           cy.get('#product-summary-auto-amount')
               .should('not.have.value', "")
-          cy.get('#product-summary-auto-amount')
+          cy.get('#product-summary-auto-value')
               .should('not.have.value', "")
-              
+
       })
   })

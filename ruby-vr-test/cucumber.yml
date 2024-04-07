@@ -1,7 +1,7 @@
 default: -p cucumber_publish
 cucumber: -r features
-cucumber_publish: --publish-quiet
+cucumber_publish: --publish-quiet --publish
 pretty: --no-source --color --format pretty
 dot: --format progress
-report: --format html -o execution_report.html -f json -o execution.json -x
-json_report:  --format message --out=reports/relatorio_api.json
+html_report: --format html --out reports/cucumber_report.html
+json_report: --format json --out reports/cucumber_report.json
