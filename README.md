@@ -28,7 +28,7 @@ npm run cypress:open
 ```
 - **Modo de Linha de Comando:** Execute o Cypress em modo de linha de comando para executar o teste automaticamente.
 ```sh
-npm cypress:test
+npm run cypress:test
 ```
 
 ## Backend
