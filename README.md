@@ -24,11 +24,11 @@ Você pode executar o teste de duas maneiras:
 - **Modo Interativo:** Abra o Cypress em uma interface gráfica para selecionar e executar o teste manualmente.
 
 ```sh 
-npm run cypress:open 
+npm run cy:open 
 ```
 - **Modo de Linha de Comando:** Execute o Cypress em modo de linha de comando para executar o teste automaticamente.
 ```sh
-npm run cypress:test
+npm run test
 ```
 
 ## Backend
